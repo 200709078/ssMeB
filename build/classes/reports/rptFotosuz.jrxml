@@ -1,0 +1,1072 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Tree" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2f6e4db4-9f8f-4ffe-9759-6e1fd142f492">
+    <property name="template.type" value="columnar"/>
+    <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="SQLite"/>
+    <style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false"/>
+    <style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false"/>
+    <style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+    <style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+    <style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+            <style mode="Opaque" backcolor="#F0EFEF"/>
+        </conditionalStyle>
+    </style>
+    <style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+            <topPen lineWidth="0.5" lineColor="#000000"/>
+            <leftPen lineWidth="0.5" lineColor="#000000"/>
+            <bottomPen lineWidth="0.5" lineColor="#000000"/>
+            <rightPen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+            <style backcolor="#FBFDFF"/>
+        </conditionalStyle>
+    </style>
+    <subDataset name="mevcutDS" uuid="67c67862-8055-454a-bb4d-a22af9c451c8">
+        <property name="com.jaspersoft.studio.data.sql.tables" value="IE1ldmN1dGxhciAgLDE1LDE1LGJhMDA1ZjI3LWNkYTctNDVlNy05Zjc1LTUwNzQwMmU2YjQwODs="/>
+        <property name="com.jaspersoft.studio.data.defaultdataadapter" value="SQLite"/>
+        <parameter name="paramKurumKodu" class="java.lang.Integer"/>
+        <queryString language="SQL">
+			<![CDATA[SELECT yili,
+	mevcudu,
+	kurum_kodu,
+	degisim_orani
+FROM  Mevcutlar 
+WHERE 
+	  Mevcutlar .kurum_kodu = $P{paramKurumKodu} 
+ORDER BY  Mevcutlar .yili ASC]]>
+        </queryString>
+        <field name="yili" class="java.lang.Object">
+            <property name="com.jaspersoft.studio.field.name" value="yili"/>
+            <property name="com.jaspersoft.studio.field.label" value="yili"/>
+            <property name="com.jaspersoft.studio.field.tree.path" value="Mevcutlar"/>
+        </field>
+        <field name="mevcudu" class="java.lang.Object">
+            <property name="com.jaspersoft.studio.field.name" value="mevcudu"/>
+            <property name="com.jaspersoft.studio.field.label" value="mevcudu"/>
+            <property name="com.jaspersoft.studio.field.tree.path" value="Mevcutlar"/>
+        </field>
+        <field name="kurum_kodu" class="java.lang.Object">
+            <property name="com.jaspersoft.studio.field.name" value="kurum_kodu"/>
+            <property name="com.jaspersoft.studio.field.label" value="kurum_kodu"/>
+            <property name="com.jaspersoft.studio.field.tree.path" value="Mevcutlar"/>
+        </field>
+        <field name="degisim_orani" class="java.lang.Object">
+            <property name="com.jaspersoft.studio.field.name" value="degisim_orani"/>
+            <property name="com.jaspersoft.studio.field.label" value="degisim_orani"/>
+            <property name="com.jaspersoft.studio.field.tree.path" value="Mevcutlar"/>
+        </field>
+    </subDataset>
+    <parameter name="paramKurumKodu" class="java.lang.Integer" isForPrompting="false"/>
+    <queryString language="SQL">
+		<![CDATA[SELECT * FROM Kurumlar]]>
+    </queryString>
+    <field name="kurum_kodu" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="kurum_kodu"/>
+        <property name="com.jaspersoft.studio.field.label" value="kurum_kodu"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="kurum_adi" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="kurum_adi"/>
+        <property name="com.jaspersoft.studio.field.label" value="kurum_adi"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="yapim_tarihi" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="yapim_tarihi"/>
+        <property name="com.jaspersoft.studio.field.label" value="yapim_tarihi"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="onarim" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="onarim"/>
+        <property name="com.jaspersoft.studio.field.label" value="onarim"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="onarim_tarihi" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="onarim_tarihi"/>
+        <property name="com.jaspersoft.studio.field.label" value="onarim_tarihi"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="yuzolcumu" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="yuzolcumu"/>
+        <property name="com.jaspersoft.studio.field.label" value="yuzolcumu"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="merkeze_uzakligi" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="merkeze_uzakligi"/>
+        <property name="com.jaspersoft.studio.field.label" value="merkeze_uzakligi"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="blok_sayisi" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="blok_sayisi"/>
+        <property name="com.jaspersoft.studio.field.label" value="blok_sayisi"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="derslik_sayisi" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="derslik_sayisi"/>
+        <property name="com.jaspersoft.studio.field.label" value="derslik_sayisi"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="ogretmen_sayisi" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="ogretmen_sayisi"/>
+        <property name="com.jaspersoft.studio.field.label" value="ogretmen_sayisi"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="ic" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="ic"/>
+        <property name="com.jaspersoft.studio.field.label" value="ic"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="dis" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="dis"/>
+        <property name="com.jaspersoft.studio.field.label" value="dis"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="cati" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="cati"/>
+        <property name="com.jaspersoft.studio.field.label" value="cati"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="tuvalet" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="tuvalet"/>
+        <property name="com.jaspersoft.studio.field.label" value="tuvalet"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="elektrik" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="elektrik"/>
+        <property name="com.jaspersoft.studio.field.label" value="elektrik"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="su" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="su"/>
+        <property name="com.jaspersoft.studio.field.label" value="su"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="kapi_pencere" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="kapi_pencere"/>
+        <property name="com.jaspersoft.studio.field.label" value="kapi_pencere"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="bahce" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="bahce"/>
+        <property name="com.jaspersoft.studio.field.label" value="bahce"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="su_baskini" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="su_baskini"/>
+        <property name="com.jaspersoft.studio.field.label" value="su_baskini"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="diger_sorunlar" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="diger_sorunlar"/>
+        <property name="com.jaspersoft.studio.field.label" value="diger_sorunlar"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="sosyolojik" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="sosyolojik"/>
+        <property name="com.jaspersoft.studio.field.label" value="sosyolojik"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <sortField name="kurum_kodu"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band splitType="Stretch">
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="60" splitType="Stretch">
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+            <staticText>
+                <reportElement style="Title" x="0" y="0" width="555" height="30" uuid="f49d68fd-a2c7-44ec-a5fc-9300d10c85a1"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="18" isBold="false"/>
+                </textElement>
+                <text><![CDATA[MUĞLA - ORTACA MİLLİ EĞİTİM MÜDÜRLÜĞÜ]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="0" y="30" width="555" height="25" uuid="ae407a25-3993-4f90-83dd-82ece3b71ebe">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <pen lineColor="#050505"/>
+                    <topPen lineWidth="0.0" lineColor="#FF0C08"/>
+                    <leftPen lineWidth="0.0" lineColor="#FF0C08"/>
+                    <bottomPen lineWidth="0.0" lineColor="#FF0C08"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{kurum_adi}+" FİZİKİ DURUMU"]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageHeader>
+    <columnHeader>
+        <band splitType="Stretch"/>
+    </columnHeader>
+    <detail>
+        <band height="702" splitType="Stretch">
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="0" y="2" width="190" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="4fe2737a-6742-4ff8-b9a5-d0b3d9a01fd2">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                    <paragraph rightIndent="5"/>
+                </textElement>
+                <text><![CDATA[Yapım Tarihi :]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="190" y="2" width="85" height="20" uuid="1b306bbb-fd03-4926-9367-1af3426194b8">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{yapim_tarihi}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="0" y="22" width="190" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="2d06102c-5993-4ff9-a0e9-39f1dab21e94">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                    <paragraph rightIndent="5"/>
+                </textElement>
+                <text><![CDATA[Onarım Durumu :]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="190" y="22" width="85" height="20" uuid="2950947e-9ad5-4faa-97e3-81a7a6019fb0">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{onarim}.toString().equals("0") ? "Yok" :  $F{onarim}.toString().equals("1") ? "Güçlendirme" :  "Onarım"]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="0" y="42" width="190" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="1a7d56a6-319e-4c0a-9bd6-251f77a9a257">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                    <paragraph rightIndent="5"/>
+                </textElement>
+                <text><![CDATA[Onarım Tarihi :]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="190" y="42" width="85" height="20" uuid="bebe300b-c012-46fb-9d87-47ed201cb442">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{onarim_tarihi}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="275" y="22" width="188" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="576056b4-6f6a-4310-b122-151cfc39573a">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                    <paragraph rightIndent="5"/>
+                </textElement>
+                <text><![CDATA[Yüz Ölçümü :]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="464" y="22" width="91" height="20" uuid="a8192a0d-ffe9-416d-99c0-a28f2e3521d2">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="1.0"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{yuzolcumu}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="275" y="42" width="188" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="793be038-146a-488f-afdb-c2ca0882a868">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                    <paragraph rightIndent="5"/>
+                </textElement>
+                <text><![CDATA[Merkeze Uzaklığı :]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="464" y="42" width="91" height="20" uuid="aa41e70d-fd23-4e80-9d0c-1200439095f5">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="1.0"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{merkeze_uzakligi}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="275" y="2" width="188" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="fe1b5816-8770-46fc-a8cf-5e21af51ebfd">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                    <paragraph rightIndent="5"/>
+                </textElement>
+                <text><![CDATA[Blok Sayısı :]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="464" y="2" width="91" height="20" uuid="3574643b-93d1-4676-97ba-e133dd0b0baf">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="1.0"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{blok_sayisi}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="275" y="62" width="188" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="ba22b080-d70b-40c5-9dbc-4b065f011fd4">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                    <paragraph rightIndent="5"/>
+                </textElement>
+                <text><![CDATA[Derslik Sayısı :]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="464" y="62" width="91" height="20" uuid="13884c59-c931-4145-b230-9c8856135393">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="1.0"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{derslik_sayisi}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="275" y="82" width="188" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="1c22f2c1-cd4f-4c56-97ef-a74e710169df">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                    <paragraph rightIndent="5"/>
+                </textElement>
+                <text><![CDATA[Öğretmen Sayısı :]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="464" y="82" width="91" height="20" uuid="796b802c-fe2b-4092-86c2-ffdb1f1b15a3">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="1.0"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ogretmen_sayisi}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="0" y="62" width="190" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="00bd2b2a-be12-48d9-8761-3bd6ed2d5a1e">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                    <paragraph rightIndent="5"/>
+                </textElement>
+                <text><![CDATA[İç Cephe Boya Durumu :]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="190" y="62" width="85" height="20" uuid="051870b4-a145-4e33-a574-aebabac5980d">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ic}.toString().equals("0") ? "" :  $F{ic}.toString().equals("1") ? "İyi" :  "Kötü"]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="0" y="82" width="190" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="612ebc73-ef4f-4deb-9446-54c69764820a">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                    <paragraph rightIndent="5"/>
+                </textElement>
+                <text><![CDATA[Dış Cephe Boya Durumu :]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="190" y="82" width="85" height="20" uuid="df5d3d39-5ee6-4658-861f-54bbc7ac456b">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement markup="none">
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{dis}.toString().equals("0") ? "" :  $F{dis}.toString().equals("1") ? "İyi" :  "Kötü"]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="275" y="102" width="188" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="0f0bb1ee-8d8f-44f2-8220-ae0a00812c2a">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                    <paragraph rightIndent="5"/>
+                </textElement>
+                <text><![CDATA[Çatı Durumu :]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="464" y="102" width="91" height="20" uuid="f52a2aca-187c-49a4-bb2b-da92f0f43665">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="1.0"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{cati}.toString().equals("0") ? "" :  $F{cati}.toString().equals("1") ? "İyi" :  "Kötü"]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="0" y="102" width="190" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="397f8e63-285f-484f-8fb4-8f9b721b6b74">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                    <paragraph rightIndent="5"/>
+                </textElement>
+                <text><![CDATA[Tuvaletlerin Durumu :]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="190" y="102" width="85" height="20" isRemoveLineWhenBlank="true" uuid="7d12a503-3583-46b5-930a-e6320f36b772">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <pen lineWidth="1.0"/>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{tuvalet}.toString().equals("0") ? "" :  $F{tuvalet}.toString().equals("1") ? "İyi" :  "Kötü"]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="0" y="122" width="190" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="d2d5825f-fecf-4bc2-90ca-cbbda8548dc9">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                    <paragraph rightIndent="5"/>
+                </textElement>
+                <text><![CDATA[Elektrik Tesisatının Durumu :]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="190" y="122" width="85" height="20" uuid="0196bf5e-dfdc-47d1-9593-bd1686f072d6">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{elektrik}.toString().equals("0") ? "" :  $F{elektrik}.toString().equals("1") ? "İyi" :  "Kötü"]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="0" y="142" width="190" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="7ea58e25-fec5-43dd-9379-f4fc1b8546fe">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                    <paragraph rightIndent="5"/>
+                </textElement>
+                <text><![CDATA[Su Tesisatının Durumu :]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="190" y="142" width="85" height="20" uuid="b9ba1aab-719f-4e70-8cff-e6f20eabef87">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <pen lineWidth="1.0"/>
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{su}.toString().equals("0") ? "" :  $F{su}.toString().equals("1") ? "İyi" :  "Kötü"]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="0" y="162" width="190" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="41b8d686-3719-45c1-80f3-132ec89da2a0">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="0.0"/>
+                </box>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                    <paragraph rightIndent="5"/>
+                </textElement>
+                <text><![CDATA[Kapı ve Pencerelerin Durumu :]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="190" y="162" width="85" height="20" uuid="f5b9810c-eb0d-4706-a9a1-9b785ad071e3">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <pen lineWidth="1.0"/>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{kapi_pencere}.toString().equals("0") ? "" :  $F{kapi_pencere}.toString().equals("1") ? "İyi" :  "Kötü"]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="275" y="122" width="188" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="524335ff-90dd-48ee-b52b-df49b00570f7">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement textAlignment="Right">
+                    <font isBold="false"/>
+                    <paragraph rightIndent="5"/>
+                </textElement>
+                <text><![CDATA[Bahçenin Durumu :]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="464" y="122" width="91" height="20" uuid="61ecf0ae-2aac-4e94-915e-1c3253fc1ec7">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <pen lineWidth="1.0"/>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{bahce}.toString().equals("0") ? "" :  $F{bahce}.toString().equals("1") ? "İyi" :  "Kötü"]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="274" y="142" width="281" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="0488ad7c-6d6a-43f8-af8d-9c2c027f0c26">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <pen lineWidth="1.0"/>
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="1.0"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font isBold="false"/>
+                    <paragraph firstLineIndent="5" rightIndent="0"/>
+                </textElement>
+                <text><![CDATA[Su Baskını Durumu]]></text>
+            </staticText>
+            <textField textAdjust="ScaleFont" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="274" y="162" width="281" height="20" uuid="d04961e8-00af-4b64-bf32-374c2bd41d17">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="1.0"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{su_baskini}.toString().equals("0") ? "" :  $F{su_baskini}.toString().equals("1") ? "Her zaman su baskını var" :  "Sadece aşırı yağışlı günlerde var"]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="0" y="182" width="555" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="a0ce3c77-4946-4f08-b454-5c5afb875167">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <pen lineWidth="1.0"/>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#666666"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="false"/>
+                </textElement>
+                <text><![CDATA[Diğer Fiziki Sorunlar]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="0" y="202" width="555" height="162" uuid="d41f9cf9-d4fb-4d76-9827-858c3c075557">
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <box padding="0">
+                    <pen lineWidth="1.0"/>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{diger_sorunlar}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement style="Column header" positionType="Float" mode="Opaque" x="0" y="364" width="555" height="20" forecolor="#000000" backcolor="#BFE1FF" uuid="850f62bb-02e3-4d6d-8523-fcb7a73f874b">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                </reportElement>
+                <box padding="0">
+                    <pen lineWidth="0.0" lineColor="#050505"/>
+                    <topPen lineWidth="1.0" lineStyle="Solid" lineColor="#050505"/>
+                    <leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#050505"/>
+                    <bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#050505"/>
+                    <rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#050505"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font isBold="false"/>
+                </textElement>
+                <text><![CDATA[Mahallenin Sosyolojik Yapısı]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="0" y="384" width="555" height="132" uuid="460ba4af-58be-4f2e-9b6d-02ba6cf4b745">
+                    <property name="com.jaspersoft.studio.unit.firstLineIndent" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <box padding="1">
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="1.0"/>
+                </box>
+                <textElement>
+                    <font size="14" isBold="true"/>
+                    <paragraph firstLineIndent="5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{sosyolojik}]]></textFieldExpression>
+            </textField>
+            <componentElement>
+                <reportElement x="0" y="516" width="360" height="181" uuid="73e66605-97e5-43ae-949c-2f0717d420f5">
+                    <property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+                    <property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+                    <property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+                    <property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+                    <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+                    <datasetRun subDataset="mevcutDS" uuid="9c41a2df-5bab-4aa5-9752-70b26e566928">
+                        <datasetParameter name="paramKurumKodu">
+                            <datasetParameterExpression><![CDATA[$F{kurum_kodu}]]></datasetParameterExpression>
+                        </datasetParameter>
+                        <connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+                    </datasetRun>
+                    <jr:column width="120" uuid="e9ea55cd-c3a6-4d45-ab1a-42641c79321e">
+                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                            <staticText>
+                                <reportElement x="0" y="0" width="120" height="30" uuid="b032e8cb-7715-4925-a10f-628dbaf8c23f"/>
+                                <box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+                                    <pen lineWidth="1.0"/>
+                                    <topPen lineWidth="1.0"/>
+                                    <leftPen lineWidth="1.0"/>
+                                    <bottomPen lineWidth="1.0"/>
+                                    <rightPen lineWidth="1.0"/>
+                                </box>
+                                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                                <text><![CDATA[ÖĞRETİM YILI]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement x="0" y="0" width="120" height="30" uuid="43000b1f-9322-4ce8-a753-b3f5b60e6836"/>
+                                <box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+                                    <pen lineWidth="1.0"/>
+                                    <topPen lineWidth="1.0"/>
+                                    <leftPen lineWidth="1.0"/>
+                                    <bottomPen lineWidth="1.0"/>
+                                    <rightPen lineWidth="1.0"/>
+                                </box>
+                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                    <font isBold="true"/>
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{yili}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="120" uuid="953b263c-74c8-41e5-bd1c-aa5e0ecbce37">
+                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                            <staticText>
+                                <reportElement mode="Transparent" x="0" y="0" width="120" height="30" uuid="5c0d2064-5572-4fc1-8ba2-e762d1bdcdbe"/>
+                                <box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+                                    <pen lineWidth="1.0"/>
+                                    <topPen lineWidth="1.0"/>
+                                    <leftPen lineWidth="1.0"/>
+                                    <bottomPen lineWidth="1.0"/>
+                                    <rightPen lineWidth="1.0"/>
+                                </box>
+                                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                                <text><![CDATA[OKUL MEVCUDU]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement x="0" y="0" width="120" height="30" uuid="39253e63-2ebd-4661-9b35-999a80d307f3"/>
+                                <box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+                                    <pen lineWidth="1.0"/>
+                                    <topPen lineWidth="1.0"/>
+                                    <leftPen lineWidth="1.0"/>
+                                    <bottomPen lineWidth="1.0"/>
+                                    <rightPen lineWidth="1.0"/>
+                                </box>
+                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                    <font isBold="true"/>
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{mevcudu}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="120" uuid="ff89fd7a-db63-4b02-be59-eab7205f3ad9">
+                        <property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+                        <jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+                            <staticText>
+                                <reportElement mode="Transparent" x="0" y="0" width="120" height="30" uuid="5c36c7c5-7618-45c7-92f8-4245815d41b6"/>
+                                <box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+                                    <pen lineWidth="1.0"/>
+                                    <topPen lineWidth="1.0"/>
+                                    <leftPen lineWidth="1.0"/>
+                                    <bottomPen lineWidth="1.0"/>
+                                    <rightPen lineWidth="1.0"/>
+                                </box>
+                                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                                <text><![CDATA[DEĞİŞİM ORANI]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement x="0" y="0" width="120" height="30" uuid="0e0e2114-6d15-4331-9fa7-a6f4c20f3ecb"/>
+                                <box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+                                    <pen lineWidth="1.0"/>
+                                    <topPen lineWidth="1.0"/>
+                                    <leftPen lineWidth="1.0"/>
+                                    <bottomPen lineWidth="1.0"/>
+                                    <rightPen lineWidth="1.0"/>
+                                </box>
+                                <textElement textAlignment="Center" verticalAlignment="Middle">
+                                    <font isBold="true"/>
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{degisim_orani}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                </jr:table>
+            </componentElement>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="7" splitType="Stretch">
+            <line>
+                <reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="fab082df-3ca0-43ac-900e-4da3f8b5a45d"/>
+                <graphicElement>
+                    <pen lineWidth="0.5" lineColor="#999999"/>
+                </graphicElement>
+            </line>
+        </band>
+    </columnFooter>
+    <pageFooter>
+        <band height="33" splitType="Stretch">
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+            <frame>
+                <reportElement mode="Opaque" x="0" y="2" width="554" height="13" forecolor="#D0B48E" backcolor="rgba(157, 177, 184, 0.56078434)" uuid="bfdca178-800d-445c-9a31-bb616a00e8ce"/>
+                <textField evaluationTime="Report">
+                    <reportElement style="Column header" x="280" y="0" width="40" height="13" forecolor="#050505" uuid="2fba0f87-635e-476d-858f-d102b26146fe"/>
+                    <textElement verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement style="Column header" mode="Transparent" x="200" y="0" width="80" height="13" forecolor="#050505" uuid="e454d23d-bcfc-4c79-a399-0ef520a3150a"/>
+                    <textElement textAlignment="Right" verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA["Sayfa "+$V{PAGE_NUMBER}+" /"]]></textFieldExpression>
+                </textField>
+                <textField pattern="EEEEE dd MMMMM yyyy">
+                    <reportElement style="Column header" x="2" y="0" width="197" height="13" forecolor="#050505" uuid="14d8de1e-8695-4078-a67f-0e69172574d5"/>
+                    <textElement verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+                </textField>
+                <staticText>
+                    <reportElement x="340" y="0" width="210" height="13" uuid="ee7e8992-9cdb-42f1-a2e0-35cbccd8acc2">
+                        <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                        <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    </reportElement>
+                    <textElement textAlignment="Right" verticalAlignment="Top"/>
+                    <text><![CDATA[made by mADEMatik]]></text>
+                </staticText>
+            </frame>
+        </band>
+    </pageFooter>
+    <summary>
+        <band splitType="Stretch"/>
+    </summary>
+</jasperReport>

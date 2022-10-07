@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Tree" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3a14d58d-180c-4596-92f5-88f832db3d0a">
+    <property name="template.type" value="columnar"/>
+    <property name="net.sf.jasperreports.viewer.zoom" value="2"/>
+    <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="SQLite"/>
+    <style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false"/>
+    <style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false"/>
+    <style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true"/>
+    <style name="Detail" mode="Transparent" fontName="Times New Roman"/>
+    <style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+            <style mode="Opaque" backcolor="#F0EFEF"/>
+        </conditionalStyle>
+    </style>
+    <parameter name="kurumKodu" class="java.lang.String"/>
+    <queryString language="SQL">
+		<![CDATA[SELECT  Kurumlar .kurum_kodu,
+	 Kurumlar .kurum_adi,
+	 Fotolar .turu,
+	 Fotolar .adi
+FROM  Fotolar 
+	INNER JOIN  Kurumlar  ON 
+	  Fotolar .kurum_kodu = Kurumlar .kurum_kodu
+
+	  WHERE Fotolar .kurum_kodu = $P{kurumKodu} ]]>
+    </queryString>
+    <field name="kurum_kodu" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="kurum_kodu"/>
+        <property name="com.jaspersoft.studio.field.label" value="kurum_kodu"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="kurum_adi" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="kurum_adi"/>
+        <property name="com.jaspersoft.studio.field.label" value="kurum_adi"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Kurumlar"/>
+    </field>
+    <field name="turu" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="turu"/>
+        <property name="com.jaspersoft.studio.field.label" value="turu"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Fotolar"/>
+    </field>
+    <field name="adi" class="java.lang.Object">
+        <property name="com.jaspersoft.studio.field.name" value="adi"/>
+        <property name="com.jaspersoft.studio.field.label" value="adi"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="Fotolar"/>
+    </field>
+    <sortField name="kurum_kodu"/>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band splitType="Stretch"/>
+    </title>
+    <pageHeader>
+        <band height="60" splitType="Stretch">
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+            <staticText>
+                <reportElement style="Title" x="3" y="0" width="553" height="30" uuid="ad601c88-e03b-439e-b5c4-928d3561937b"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="22" isBold="false"/>
+                </textElement>
+                <text><![CDATA[MUĞLA ORTACA MİLLİ EĞİTİM MÜDÜRLÜĞÜ]]></text>
+            </staticText>
+        </band>
+    </pageHeader>
+    <columnHeader>
+        <band splitType="Stretch"/>
+    </columnHeader>
+    <detail>
+        <band height="355" splitType="Stretch">
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+            <image hAlign="Center" vAlign="Top">
+                <reportElement stretchType="ContainerHeight" x="2" y="13" width="553" height="330" uuid="c859f03c-1cc8-4097-b070-c4a6ff74e72c">
+                    <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                </reportElement>
+                <box>
+                    <topPen lineWidth="1.0"/>
+                    <leftPen lineWidth="1.0"/>
+                    <bottomPen lineWidth="1.0"/>
+                    <rightPen lineWidth="1.0"/>
+                </box>
+                <imageExpression><![CDATA[".\\src\\fotolar\\"+$F{adi}.toString()]]></imageExpression>
+            </image>
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement style="Detail" positionType="Float" x="2" y="-22" width="551" height="35" uuid="cac9aa28-4b0f-4fc0-90b3-1161e7c2079a"/>
+                <textElement textAlignment="Center" verticalAlignment="Bottom">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{kurum_adi}+" "+$F{turu}+" FOTOĞRAFI"]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="7" splitType="Stretch">
+            <line>
+                <reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="1b5ee5f6-cd89-4b57-900f-0a036a387cf5"/>
+                <graphicElement>
+                    <pen lineWidth="0.5" lineColor="#999999"/>
+                </graphicElement>
+            </line>
+        </band>
+    </columnFooter>
+    <pageFooter>
+        <band height="13" splitType="Stretch">
+            <frame>
+                <reportElement mode="Opaque" x="2" y="0" width="555" height="13" forecolor="#D0B48E" backcolor="#9DB1B8" uuid="db8e050f-2273-47b0-b3fe-3a9d6d727104"/>
+                <textField evaluationTime="Report">
+                    <reportElement style="Column header" x="302" y="0" width="40" height="13" forecolor="#FFFFFF" uuid="cdd5b5dc-06f8-4c9a-aeeb-9fc2ba65f234"/>
+                    <textElement verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement style="Column header" mode="Transparent" x="222" y="0" width="80" height="13" forecolor="#FFFFFF" uuid="1fb3110f-b37f-4f34-a8c8-2456f74fb231"/>
+                    <textElement textAlignment="Right" verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA["Sayfa "+$V{PAGE_NUMBER}+" /"]]></textFieldExpression>
+                </textField>
+                <textField pattern="EEEEE dd MMMMM yyyy">
+                    <reportElement style="Column header" x="2" y="0" width="197" height="13" forecolor="#FFFFFF" uuid="37a9f350-b4ed-4b71-9701-6251bda1611c"/>
+                    <textElement verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+                </textField>
+                <staticText>
+                    <reportElement x="428" y="0" width="123" height="13" forecolor="#FFFFFF" uuid="22daf5ee-5671-4f2c-82f7-5c6751b7d6d2">
+                        <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                        <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                    </reportElement>
+                    <textElement textAlignment="Right" verticalAlignment="Top"/>
+                    <text><![CDATA[made by mADEMatik]]></text>
+                </staticText>
+            </frame>
+        </band>
+    </pageFooter>
+    <summary>
+        <band splitType="Stretch"/>
+    </summary>
+</jasperReport>
